@@ -8,36 +8,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let quotes = [];
 
-  const loading = () => {
+  const showLoader = () => {
     loader.style.display = 'block';
     quoteContainer.style.display = 'none';
   };
 
-  const complete = () => {
+  const hideLoader = () => {
     loader.style.display = 'none';
     quoteContainer.style.display = 'block';
   };
 
-  const getQuotes = async () => {
-    loading();
+  const fetchQuotes = async () => {
+    showLoader();
     const apiUrl = 'https://type.fit/api/quotes';
     try {
       const response = await fetch(apiUrl);
       quotes = await response.json();
       const quote = getRandomQuote();
-      setNewQuote(quote);
+      showQuote(quote);
     } catch (err) {
       console.log(err);
-      loading();
+      showLoader();
     }
-    complete();
+    hideLoader();
   };
 
   const getRandomQuote = () =>
     quotes[Math.floor(Math.random() * quotes.length)];
 
-  const setNewQuote = (quoteObj) => {
-    loading();
+  const showQuote = (quoteObj) => {
+    showLoader();
     if (quoteObj.text.length > 120) {
       quoteText.classList.add('long-quote');
     } else {
@@ -47,11 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
     authorText.textContent = quoteObj.author
       ? quoteObj.author
       : 'authorship not established';
-    complete();
+    hideLoader();
   };
 
   const getNewQuote = () => {
-    setNewQuote(getRandomQuote());
+    showQuote(getRandomQuote());
   };
 
   const tweetQuote = () => {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(tweetUrl, '_blank');
   };
 
-  getQuotes();
+  fetchQuotes();
   twitterBtn.addEventListener('click', tweetQuote);
   newQuoteBtn.addEventListener('click', getNewQuote);
 });
