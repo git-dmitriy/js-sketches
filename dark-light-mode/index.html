@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шаблон страницы с переключением темной/светлой темы</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Oswald&family=Pacifico&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="theme-switch-wrapper">
+    <span id="toggle-icon">
+      <span class="toggle-text">Светлый режим</span>
+      <i class="fas fa-sun"></i>
+    </span>
+    <label class="theme-switch">
+      <input type="checkbox">
+      <div class="slider round"></div>
+    </label>
+  </div>
+
+  <nav id="nav">
+    <ul>
+      <li><a href="#home">ГЛАВНАЯ</a></li>
+      <li><a href="#about">О НАС</a></li>
+      <li><a href="#projects">ПРОЕКТЫ</a></li>
+      <li><a href="#contacts">КОНТАКТЫ</a></li>
+    </ul>
+  </nav>
+  <section id="home">
+    <div class="title-group">
+      <h1>Темный и светлый режим</h1>
+      <h2>Добро пожаловать на сайт!</h2>
+    </div>
+  </section>
+  <section id="about">
+    <h1>О НАС</h1>
+    <div class="about-container">
+      <figure class="image-container">
+        <img src="img/undraw_Problem_solving_re_4gq3.svg" alt="Мы можем решать ваши проблемы">
+        <figcaption>
+          <h3>Мы поможем решить ваши проблемы</h3>
+        </figcaption>
+      </figure>
+      <figure class="image-container">
+        <img src="img/undraw_Process_re_gws7.svg" alt="Наладим рабочий процесс">
+        <figcaption>
+          <h3>Наладим рабочий процесс</h3>
+        </figcaption>
+      </figure>
+      <figure class="image-container">
+        <img src="img/undraw_breaking_barriers_vnf3.svg" alt="Разрушим барьеры">
+        <figcaption>
+          <h3>Разрушим любые барьеры</h3>
+        </figcaption>
+      </figure>
+    </div>
+
+  </section>
+  <section id="projects">
+    <h1>Наши проекты</h1>
+    <h2>Кнопки</h2>
+    <div class="buttons">
+
+      <button class="primary">primary</button>
+      <button class="primary">primary</button>
+      <button class="secondary">secondary</button>
+      <button class="outline">outline</button>
+      <button class="secondary outline">secondary outline</button>
+      <button class="outline" disabled>outline</button>
+
+    </div>
+    <div class="text-box" id="text-box">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, voluptatem maxime earum ipsum autem
+        officiis perspiciatis minus non omnis accusamus molestiae exercitationem itaque asperiores dolorem
+        assumenda quis alias tempora labore.</p>
+    </div>
+
+  </section>
+  <section id="contacts">
+    <h1>Связь с нами</h1>
+
+    <div class="social-icons">
+      <i class="fab fa-github" aria-hidden="true"></i>
+      <i class="fab fa-codepen" aria-hidden="true"></i>
+      <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+      <i class="fab fa-medium" aria-hidden="true"></i>
+      <i class="fab fa-instagram" aria-hidden="true"></i>
+      <i class="fab fa-youtube" aria-hidden="true"></i>
+    </div>
+
+  </section>
+  <script src="script.js"></script>
+</body>
+
+</html>
