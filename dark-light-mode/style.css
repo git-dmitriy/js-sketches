@@ -48,7 +48,6 @@ section {
 
 h1 {
   font-size: 100px;
-  margin-bottom: 0;
   font-family: 'Pacifico', cursive;
 }
 
@@ -96,6 +95,7 @@ a:focus {
 
 .about-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .image-container {
@@ -266,4 +266,26 @@ input:checked + .slider::before {
 .fas {
   font-size: 30px;
   margin-right: 5px;
+}
+
+@media (max-width: 1325px) {
+  h1 {
+    font-size: 80px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  .about-container {
+    justify-content: center;
+  }
+  .social-icons,
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  button {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
