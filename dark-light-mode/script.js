@@ -3,6 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleIcon = document.querySelector('#toggle-icon');
   const images = document.querySelectorAll('img');
 
+  const init = () => {
+    if (localStorage.getItem('theme')) {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.querySelector('input[type="checkbox"]').checked = true;
+        setModeToImages(images);
+        setModeToToggler(true);
+        setTheme('dark');
+      }
+    }
+  };
+
   const setModeToImages = (images) => {
     images.forEach((img) => {
       if (img.src.includes('_dark')) {
@@ -22,17 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleIcon.children[1].classList.toggle('fa-moon');
   };
 
+  const setTheme = (themeMode) =>
+    document.documentElement.setAttribute('data-theme', themeMode);
+
   const switchTheme = (event) => {
     if (event.target.checked) {
-      document.documentElement.setAttribute('data-theme', 'dark');
+      setTheme('dark');
       setModeToToggler(event.target.checked);
       setModeToImages(images);
+      localStorage.setItem('theme', 'dark');
     } else {
+      setTheme('light');
       setModeToToggler(event.target.checked);
       setModeToImages(images);
-      document.documentElement.setAttribute('data-theme', '');
+      localStorage.setItem('theme', 'light');
     }
   };
 
+  init();
   toggleSwitch.addEventListener('change', switchTheme);
 });
