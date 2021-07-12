@@ -36,15 +36,15 @@ body {
   transition: 0.4s;
 }
 
-.change .bar1 {
+.open .bar1 {
   transform: rotate(-45deg) translate(-7px, 8px);
 }
 
-.change .bar2 {
+.open .bar2 {
   opacity: 0;
 }
 
-.change .bar3 {
+.open .bar3 {
   transform: rotate(45deg) translate(-6px, -8px);
 }
 
@@ -56,6 +56,12 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
+  transform: translateX(-100vw);
+  transition: 0.3s ease-in-out 0.3s;
+}
+
+.overlay-slide-right {
+  transform: translateX(0);
 }
 
 nav,
@@ -110,20 +116,69 @@ nav li a:hover::before {
   opacity: 1;
 }
 
-nav li:nth-of-type(1) {
+.nav-item:nth-of-type(1) {
   background-color: var(--navColor1);
 }
-nav li:nth-of-type(2) {
+.nav-item:nth-of-type(2) {
   background-color: var(--navColor2);
 }
-nav li:nth-of-type(3) {
+.nav-item:nth-of-type(3) {
   background-color: var(--navColor3);
 }
-nav li:nth-of-type(4) {
+.nav-item:nth-of-type(4) {
   background-color: var(--navColor4);
 }
-nav li:nth-of-type(5) {
+.nav-item:nth-of-type(5) {
   background-color: var(--navColor5);
+}
+
+.nav-item:nth-child(1) {
+  animation: 0.3s ease-in 0.1s slideout both;
+}
+.nav-item:nth-child(2) {
+  animation: 0.3s ease-in 0.2s slideout both;
+}
+.nav-item:nth-child(3) {
+  animation: 0.3s ease-in 0.3s slideout both;
+}
+.nav-item:nth-child(4) {
+  animation: 0.3s ease-in 0.4s slideout both;
+}
+.nav-item:nth-child(5) {
+  animation: 0.3s ease-in 0.5s slideout both;
+}
+
+.overlay-slide-right .nav-item:nth-child(1) {
+  animation: 0.3s ease-in 0.1s slidein both;
+}
+.overlay-slide-right .nav-item:nth-child(2) {
+  animation: 0.3s ease-in 0.2s slidein both;
+}
+.overlay-slide-right .nav-item:nth-child(3) {
+  animation: 0.3s ease-in 0.3s slidein both;
+}
+.overlay-slide-right .nav-item:nth-child(4) {
+  animation: 0.3s ease-in 0.4s slidein both;
+}
+.overlay-slide-right .nav-item:nth-child(5) {
+  animation: 0.3s ease-in 0.5s slidein both;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes slideout {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
 }
 
 section {
