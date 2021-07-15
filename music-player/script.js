@@ -4,6 +4,8 @@ const prevBtn = document.querySelector('#prev');
 const nextBtn = document.querySelector('#next');
 const progressContainer = document.querySelector('#progress-container');
 const progress = document.querySelector('#progress');
+const currentTimeEl = document.querySelector('#current-time');
+const durationEl = document.querySelector('#duration');
 const image = document.querySelector('#img');
 const title = document.querySelector('#title');
 const artist = document.querySelector('#artist');
@@ -75,7 +77,22 @@ nextBtn.addEventListener('click', () => {
 music.addEventListener('timeupdate', (e) => {
   if (isPlaying) {
     let { currentTime, duration } = e.srcElement;
+
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}px`;
+
+    const setTime = (time) => {
+      const totalMinutes = Math.floor(time / 60);
+      let totalSeconds = Math.floor(time % 60);
+      if (totalSeconds < 10) {
+        totalSeconds = `0${totalSeconds}`;
+      }
+      if (totalSeconds) {
+        return `${totalMinutes}:${totalSeconds}`;
+      }
+    };
+
+    durationEl.textContent = setTime(duration);
+    currentTimeEl.textContent = setTime(currentTime);
   }
 });
