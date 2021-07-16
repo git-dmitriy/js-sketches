@@ -10,27 +10,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const image = document.querySelector('#img');
   const title = document.querySelector('#title');
   const artist = document.querySelector('#artist');
+  const tracksCount = document.querySelector('.tracks');
 
   let isPlaying = false;
   let currentSong = 0;
 
   const songs = [
     {
+      id: 1,
       name: 'jacinto-1',
       displayName: 'Electric Chill Machine',
       artist: 'Jacinto Design',
     },
     {
+      id: 2,
       name: 'jacinto-2',
       displayName: 'Seven Nation Army (Remix)',
       artist: 'Jacinto Design',
     },
     {
+      id: 3,
       name: 'jacinto-3',
       displayName: 'Goodnight Disco Queen',
       artist: 'Jacinto Design',
     },
     {
+      id: 4,
       name: 'metric-1',
       displayName: 'Front Row (Remix)',
       artist: 'Metric/Jacinto Design',
@@ -50,11 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     playBtn.setAttribute('title', 'Play');
   }
 
-  function loadSong(songs) {
-    title.textContent = songs.displayName;
-    artist.textContent = songs.artist;
-    music.src = `music/${songs.name}.mp3`;
-    image.src = `img/${songs.name}.jpg`;
+  function loadSong(song) {
+    title.textContent = song.displayName;
+    artist.textContent = song.artist;
+    music.src = `music/${song.name}.mp3`;
+    image.src = `img/${song.name}.jpg`;
+    tracksCount.innerHTML = `<span>${song.id} / ${songs.length}</span>`;
   }
 
   function changeSong(direction) {

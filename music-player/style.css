@@ -18,6 +18,13 @@ body {
   background-color: #e7e7e7;
   border-radius: 20px;
   box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+.tracks {
+  display: flex;
+  justify-content: center;
+  width: inherit;
+  top: -84px;
+  font-size: 20px;
+  position: absolute;
 }
 
 .img-container {
