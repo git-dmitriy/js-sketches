@@ -18,6 +18,10 @@ body {
   background-color: #e7e7e7;
   border-radius: 20px;
   box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  padding-bottom: 15px;
+}
+
 .tracks {
   display: flex;
   justify-content: center;
@@ -83,15 +87,16 @@ h3 {
 
 .player-controls {
   position: relative;
-  top: -15px;
-  left: 120px;
   width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .fas {
   font-size: 30px;
   color: rgb(129, 129, 129);
-  margin-right: 30px;
   cursor: pointer;
   user-select: none;
   transition: 0.25s filter;
