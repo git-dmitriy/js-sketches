@@ -96,3 +96,10 @@ music.addEventListener('timeupdate', (e) => {
     currentTimeEl.textContent = setTime(currentTime);
   }
 });
+
+progressContainer.addEventListener('click', (e) => {
+  const width = e.srcElement.clientWidth;
+  const clickX = e.offsetX;
+  const { duration } = music;
+  music.currentTime = (clickX / width) * duration;
+});
